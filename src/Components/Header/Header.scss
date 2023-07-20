@@ -1,0 +1,10 @@
+.header {
+	.headerBody {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 15px 0;
+	}
+}
+
+@import url('./Navigation.scss');

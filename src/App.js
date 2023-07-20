@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.scss';
+import Header from './Components/Header/Header';
+import DoramePage from './Pages/DoramePage/DoramePage';
+import Error from './Pages/ErrorPage/ErrorPage';
+import MainPage from './Pages/MainPage/MainPage';
+import AnimePage from './Pages/AnimePage/AnimePage';
+import LearningPage from './Pages/LearningPage/LearingPage';
+import AboutPage from './Pages/AboutPage/AboutPage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<BrowserRouter>
+			<Header />
+			<Routes>
+				<Route path='/' element={<MainPage />} />
+				<Route path='/dorames' element={<DoramePage />} />
+				<Route path='/anime' element={<AnimePage />} />
+				<Route path='/learning' element={<LearningPage />} />
+				<Route path='/admin-cv' element={<AboutPage />} />
+				<Route path='*' element={<Error />} />
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;
